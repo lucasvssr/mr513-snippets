@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link class="icon" rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/snippets.css">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <title><%= title %></title>
+</head>
+<body>
+<div class="header">
+    <div class="content">
+        <h1><%= section %></h1>
+        <div>
+            <a href="/" class="button header">Accueil</a>
+            <a href="/languages" class="button header">Langages</a>
+        </div>
+    </div>
+        <% if (authUser === undefined) {%>
+        <a href="/auth" class="button connect">Connexion</a>
+        <% } else { %>
+        <p><%= authUser.name %></p>
+        <a href="/auth/logout" class="button connect">Déconnexion</a>
+        <% if (authUser.role === 'ADMIN') {%>
+        <a href="/admin" class="button admin">Admin</a>
+        <% } %>
+        <% } %>
+</div>

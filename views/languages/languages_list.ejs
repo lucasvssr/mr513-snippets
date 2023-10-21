@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs', {title: title}) %>
+
+<div class="content">
+    <% languages.forEach(language => { %>
+        <div class="card">
+            <a href="/?lang=<%= language.id%>">
+            <h4>
+                <i class="<%= language.logo %> colored" ></i>
+                <%= language.name %>
+            <% if (language.snippets.length <= 1) {%>
+            <%= language.snippets.length %> snippet
+            <% } else { %>
+            <%= language.snippets.length %> snippets
+            <% } %>
+            </h4>
+            </a>
+        </div>
+    <% }) %>
+</div>
+
+<script src="js/prism.js"></script>
+<%- include('../partials/footer.ejs') %>
